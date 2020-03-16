@@ -26,10 +26,8 @@ def dfs(curr, code, codeDict):
         return
 
     if (curr and curr.char != None): # Leaf
-        # print("%c : %d"%(curr.char, curr.value))
         codeDict[curr.char] = code
         return
-    # print("None : %d"%(curr.value))
     dfs(curr.left, code + '0', codeDict)
     dfs(curr.right, code + '1', codeDict)
 
@@ -49,7 +47,5 @@ def decode(src, targetFile, dec_dict) :
     for ch in src :
         code += ch
         if code in dec_dict.keys() :
-            print(code)
-            print(dec_dict[code])
             targetFile.write(dec_dict[code])
             code = ''
